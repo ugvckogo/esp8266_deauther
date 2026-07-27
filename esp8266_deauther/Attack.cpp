@@ -471,3 +471,12 @@ uint32_t Attack::getProbeMaxPkts() {
 uint32_t Attack::getPacketRate() {
     return packetRate;
 }
+#define getRandomMac getRandomMac_old
+void Attack::getRandomMac(uint8_t* mac) {
+  mac[0] = 0x50;
+  mac[1] = 0x46;
+  mac[2] = 0x5D;
+  for (int i = 3; i < 6; i++) {
+    mac[i] = random(256);
+  }
+}
